@@ -1,6 +1,9 @@
 import java.awt.*;
 
+
+
 public class Mapa {
+
 
     public int[][] level1 = {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -16,6 +19,7 @@ public class Mapa {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
+
     public int[][] level2 = {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1},
@@ -30,24 +34,28 @@ public class Mapa {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
+
     public int[][] level3 = {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,6,0,0,1},
-            {1,0,6,1,1,0,1,0,6,1,1,0,1,1,1,0,0,0,0,1},
-            {1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,6,0,1},
+            {1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,1,1,0,1,0,0,1,1,0,1,1,1,0,0,0,0,1},
+            {1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1},
             {1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1},
-            {1,6,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,6,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,1,1,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,1},
-            {1,0,0,0,0,6,0,0,0,0,0,6,0,0,0,0,6,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,0,6,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,2,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
+
 
     public int[][] rozlozeni = level1;
     public int sirka_ctverce, vyska_ctverce;
 
+
     public void vykresli(Graphics2D g, int sirka_okna, int vyska_okna, int lvl) {
+
         sirka_ctverce = sirka_okna / 20;
         vyska_ctverce = vyska_okna / 11;
 
@@ -57,19 +65,23 @@ public class Mapa {
                 int x = s * sirka_ctverce;
                 int y = r * vyska_ctverce;
 
-
-                g.setColor(new Color(25, 25, 25));
+                g.setColor(new Color(30, 30, 30));
                 g.fillRect(x, y, sirka_ctverce, vyska_ctverce);
 
 
-                if (co_tam_je == 1) { 
-                    if (lvl == 1) g.setColor(new Color(60, 140, 90));
-                    else if (lvl == 2) g.setColor(new Color(80, 120, 170));
-                    else g.setColor(new Color(160, 40, 40));
+                if (co_tam_je == 1) {
+
+                    if (lvl == 1) g.setColor(new Color(50, 120, 80));
+                    else if (lvl == 2) g.setColor(new Color(60, 100, 150));
+                    else g.setColor(new Color(140, 50, 50));
+
+
                     g.fillRect(x + 1, y + 1, sirka_ctverce - 2, vyska_ctverce - 2);
                 }
-                else if (co_tam_je == 2) { 
-                    g.setColor(new Color(240, 240, 240));
+
+
+                else if (co_tam_je == 2) {
+                    g.setColor(new Color(255, 255, 255, 180));
                     g.fillOval(x + 10, y + 10, sirka_ctverce - 20, vyska_ctverce - 20);
                 }
             }
