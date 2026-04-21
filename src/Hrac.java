@@ -10,7 +10,7 @@ public class Hrac {
     public void vykresli(Graphics g) {
 
 
-        g.setColor(new Color(255, 200, 0)); // Zlatá barva
+        g.setColor(new Color(255, 200, 0));
         int m = velikost / 6;
         g.fillRoundRect(x + m, y + m, velikost - 2*m, velikost - 2*m, 10, 10);
 

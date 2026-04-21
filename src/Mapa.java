@@ -1,6 +1,7 @@
 import java.awt.*;
 
 public class Mapa {
+
     public int[][] level1 = {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -44,29 +45,32 @@ public class Mapa {
     };
 
     public int[][] rozlozeni = level1;
-    public int sirkaPole, vyskaPole;
+    public int sirka_ctverce, vyska_ctverce;
 
-    public void vykresli(Graphics2D g, int sirkaOkna, int vyskaOkna, int level) {
-        sirkaPole = sirkaOkna / 20;
-        vyskaPole = vyskaOkna / 11;
+    public void vykresli(Graphics2D g, int sirka_okna, int vyska_okna, int lvl) {
+        sirka_ctverce = sirka_okna / 20;
+        vyska_ctverce = vyska_okna / 11;
 
         for (int r = 0; r < 11; r++) {
             for (int s = 0; s < 20; s++) {
-                int cislo = rozlozeni[r][s];
-                int x = s * sirkaPole;
-                int y = r * vyskaPole;
+                int co_tam_je = rozlozeni[r][s];
+                int x = s * sirka_ctverce;
+                int y = r * vyska_ctverce;
 
-                g.setColor(new Color(30, 30, 30)); // Tmave pozadi cesty
-                g.fillRect(x, y, sirkaPole, vyskaPole);
 
-                if (cislo == 1) { // Matne barvy zdi
-                    if (level == 1) g.setColor(new Color(46, 139, 87)); // Matna zelena
-                    else if (level == 2) g.setColor(new Color(70, 130, 180)); // Matna modra
-                    else g.setColor(new Color(178, 34, 34)); // Matna cervena
-                    g.fillRect(x + 1, y + 1, sirkaPole - 2, vyskaPole - 2);
-                } else if (cislo == 2) {
-                    g.setColor(new Color(245, 245, 245)); // Matna bila pro cil
-                    g.fillOval(x + 10, y + 10, sirkaPole - 20, vyskaPole - 20);
+                g.setColor(new Color(25, 25, 25));
+                g.fillRect(x, y, sirka_ctverce, vyska_ctverce);
+
+
+                if (co_tam_je == 1) { // zdi podle levelu
+                    if (lvl == 1) g.setColor(new Color(60, 140, 90));
+                    else if (lvl == 2) g.setColor(new Color(80, 120, 170));
+                    else g.setColor(new Color(160, 40, 40));
+                    g.fillRect(x + 1, y + 1, sirka_ctverce - 2, vyska_ctverce - 2);
+                }
+                else if (co_tam_je == 2) { // bily cil
+                    g.setColor(new Color(240, 240, 240));
+                    g.fillOval(x + 10, y + 10, sirka_ctverce - 20, vyska_ctverce - 20);
                 }
             }
         }
