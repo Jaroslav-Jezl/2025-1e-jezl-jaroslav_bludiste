@@ -33,7 +33,7 @@ public class Hra extends JFrame {
                     for (Koule k : naboje) k.vykresli(g2, plan.sirka_ctverce, plan.vyska_ctverce);
                 }
 
-                // hrac - svetle modry
+                
                 g2.setColor(new Color(50, 200, 255));
                 g2.fillRect(hracS * plan.sirka_ctverce + 7, hracR * plan.vyska_ctverce + 7, plan.sirka_ctverce - 14, plan.vyska_ctverce - 14);
             }
@@ -44,7 +44,7 @@ public class Hra extends JFrame {
 
         new Timer(3000, e -> {
             if (cislo_lvl == 3) {
-                naboje.clear(); // stary pryc
+                naboje.clear(); 
                 naboje.add(new Koule(1, 16, -1));
                 naboje.add(new Koule(5, 0, 1));
                 naboje.add(new Koule(9, 2, 1));
@@ -59,7 +59,7 @@ public class Hra extends JFrame {
             if (cislo_lvl == 2 && casovac % 4 == 0) {
                 for (Ryba r : nepratele) {
                     r.pohyb(plan.rozlozeni);
-                    if (r.r == hracR && r.s == hracS) { hracR = 1; hracS = 1; } // smrt
+                    if (r.r == hracR && r.s == hracS) { hracR = 1; hracS = 1; } 
                 }
             }
 
@@ -88,7 +88,7 @@ public class Hra extends JFrame {
               
                 if (r >= 0 && r < 11 && s >= 0 && s < 20 && plan.rozlozeni[r][s] != 1) {
                     hracR = r; hracS = s;
-                    if (plan.rozlozeni[r][s] == 2) { // cil
+                    if (plan.rozlozeni[r][s] == 2) { 
                         if (cislo_lvl < 3) dalsiLvl(cislo_lvl + 1);
                         else {
                             JOptionPane.showMessageDialog(null, "Hotovo Vyhral jsi.", "Konec hry", JOptionPane.PLAIN_MESSAGE);
