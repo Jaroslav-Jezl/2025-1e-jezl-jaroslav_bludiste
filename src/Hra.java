@@ -24,10 +24,8 @@ public class Hra extends JFrame {
                 Graphics2D g2 = (Graphics2D) g;
                 super.paintComponent(g2);
 
-                // kresli mapu
+              
                 plan.vykresli(g2, getWidth(), getHeight(), cislo_lvl);
-
-                // kresli potvory a koule
                 if (cislo_lvl == 2) {
                     for (Ryba r : nepratele) r.vykresli(g2, plan.sirka_ctverce, plan.vyska_ctverce);
                 }
@@ -79,7 +77,6 @@ public class Hra extends JFrame {
             repaint();
         }).start();
 
-
         addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 int r = hracR, s = hracS;
@@ -88,13 +85,13 @@ public class Hra extends JFrame {
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) s--;
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) s++;
 
-                // muzu tam jit?
+              
                 if (r >= 0 && r < 11 && s >= 0 && s < 20 && plan.rozlozeni[r][s] != 1) {
                     hracR = r; hracS = s;
                     if (plan.rozlozeni[r][s] == 2) { // cil
                         if (cislo_lvl < 3) dalsiLvl(cislo_lvl + 1);
                         else {
-                            JOptionPane.showMessageDialog(null, "Hotovo! Vyhral jsi.", "Konec hry", JOptionPane.PLAIN_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Hotovo Vyhral jsi.", "Konec hry", JOptionPane.PLAIN_MESSAGE);
                             System.exit(0);
                         }
                     }
@@ -120,7 +117,7 @@ public class Hra extends JFrame {
         hracR = 1; hracS = 1;
     }
 
-    // nepritel v lv2
+
     class Ryba {
         int r, s, strana = 1;
         Ryba(int r, int s) { this.r = r; this.s = s; }
@@ -134,7 +131,7 @@ public class Hra extends JFrame {
         }
     }
 
-    // strela v lv3
+  
     class Koule {
         int r, s, smer, let = 0;
         Koule(int r, int s, int sm) { this.r = r; this.s = s; this.smer = sm; }
