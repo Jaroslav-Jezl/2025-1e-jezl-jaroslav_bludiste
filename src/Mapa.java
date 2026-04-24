@@ -62,13 +62,13 @@ public class Mapa {
                 g.fillRect(x, y, sirka_ctverce, vyska_ctverce);
 
 
-                if (co_tam_je == 1) { // zdi podle levelu
+                if (co_tam_je == 1) { 
                     if (lvl == 1) g.setColor(new Color(60, 140, 90));
                     else if (lvl == 2) g.setColor(new Color(80, 120, 170));
                     else g.setColor(new Color(160, 40, 40));
                     g.fillRect(x + 1, y + 1, sirka_ctverce - 2, vyska_ctverce - 2);
                 }
-                else if (co_tam_je == 2) { // bily cil
+                else if (co_tam_je == 2) { 
                     g.setColor(new Color(240, 240, 240));
                     g.fillOval(x + 10, y + 10, sirka_ctverce - 20, vyska_ctverce - 20);
                 }
