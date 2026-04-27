@@ -52,12 +52,12 @@ public class Hra extends JFrame {
 
 
                 g2.setColor(new Color(0, 153, 255));
-                int offset = 8; // mezera od stěn
+                int offset = 8; 
                 g2.fillRoundRect(hracS * plan.sirka_ctverce + offset,
                         hracR * plan.vyska_ctverce + offset,
                         plan.sirka_ctverce - (offset * 2),
                         plan.vyska_ctverce - (offset * 2),
-                        10, 10); // zaoblené rohy
+                        10, 10); 
             }
         };
 
